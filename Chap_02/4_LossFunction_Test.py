@@ -70,3 +70,13 @@ plt.plot(x_array,phuber2_y_out, 'g:', label = 'P-Huber Loss (5.0)')
 plt.ylim(-0.2,0.4)
 plt.legend(loc='lower right', prop={'size':11})
 plt.show()
+
+
+#Drawing Classification Loss Functions Using matplotlib
+plt.plot(x_array, hinge_y_out, 'b-', label = 'Hinge Loss')
+plt.plot(x_array, xentropy_y_out, 'r--', label = 'Cross Entropy Loss')
+plt.plot(x_array, xentropy_sigmoid_y_out, 'k--', label = 'Cross Entropy Sigmoid Loss')
+plt.plot(x_array, xentropy_weighted_y_out, 'g:', label = 'Weighted Cross Entropy Loss(x0.5)')
+plt.ylim(-1.5,3)
+plt.legend(loc = 'lower right', prop={'size':11})
+plt.show()
