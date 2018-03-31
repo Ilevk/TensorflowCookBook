@@ -60,3 +60,13 @@ unscaled_logits = tf.constant([[1.,-3.,10.]])
 sparse_target_dist = tf.constant([2])
 sparse_xentropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits = unscaled_logits,labels=sparse_target_dist)
 print(sess.run(sparse_xentropy))
+
+#Drawing Regression Loss Functions Using matplotlib
+x_array = sess.run(x_vals)
+plt.plot(x_array,l2_y_out,'b-', label = 'L2 Loss')
+plt.plot(x_array,l1_y_out,'r--', label = 'L1 Loss')
+plt.plot(x_array,phuber1_y_out, 'k-', label ='P-Huber Loss (0.25)')
+plt.plot(x_array,phuber2_y_out, 'g:', label = 'P-Huber Loss (5.0)')
+plt.ylim(-0.2,0.4)
+plt.legend(loc='lower right', prop={'size':11})
+plt.show()
