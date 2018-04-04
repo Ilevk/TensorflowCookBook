@@ -15,7 +15,7 @@ my_output = tf.matmul(x_data, A)
 
 loss = tf.reduce_mean(tf.square(my_output - y_target))
 
-my_opt = tf.train.GradientDescentOptimizer(0.02)
+my_opt = tf.train.GradientDescentOptimBizer(0.02)
 train_step = my_opt.minimize(loss)
 # must initialize global variable(A)
 init = tf.global_variables_initializer()
