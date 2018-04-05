@@ -39,3 +39,9 @@ for i in range(100):
     if (i + 1) % 25 == 0:
         print('Step #' + str(i + 1) + ' A = ' + str(sess.run(A)))
         print('Loss = ' + str(sess.run(loss, feed_dict={x_data: rand_x, y_target: rand_y})))
+
+# To Evaluate Model print MSE Value
+mse_test = sess.run(loss, feed_dict={x_data: np.transpose([x_vals_test]), y_target: np.transpose([y_vals_test])})
+mse_train = sess.run(loss, feed_dict={x_data: np.transpose([x_vals_train]), y_target: np.transpose([y_vals_train])})
+print('MSE on test:' + str(np.round(mse_test, 2)))
+print('MSE on train:' + str(np.round(mse_train, 2)))
