@@ -103,3 +103,22 @@ acc_value_test = sess.run(accuracy, feed_dict={x_data: [x_vals_test], y_target: 
 acc_value_train = sess.run(accuracy, feed_dict={x_data: [x_vals_train], y_target: [y_vals_train]})
 print('Accuracy on train set: ' + str(acc_value_train))
 print('Accuracy on test set: ' + str(acc_value_test))
+
+
+# plotting
+A_result = -sess.run(A)
+bins = np.linspace(-5,5,50)
+# plotting histogram random normal distribution mean -1, variance 1
+plt.hist(x_vals[0:50], bins, alpha = 0.5, label = 'N(-1,1)',
+         color = 'black')
+# plotting histogram random normal distribution mean 2, variance 1
+plt.hist(x_vals[50:100], bins[0:50], alpha=0.5, label='N(2,1)',
+         color = 'red')
+# plotting split Line about dataset 1, 2.
+# plot((x_range), (y_range), (marker_style), (linewidth), (label for legend), (value))
+# round fuc is rounding decimal points with number
+plt.plot((A_result, A_result), (0,8), 'k', linewidth=3,
+         label = 'A = ' + str(np.round(A_result,10)))
+plt.legend(loc='upper right')
+plt.title('Binary Classifier, Accuracy=' + str(np.round(acc_value_test,2)))
+plt.show()
