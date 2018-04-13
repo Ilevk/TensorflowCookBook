@@ -96,3 +96,17 @@ for i in range(1500):
     test_acc.append(temp_acc_test)
     if( i+1) %150 == 0:
         print('Loss = ' + str(temp_loss))
+
+plt.plot(loss_vec, 'k-')
+plt.title('Cross Entropy Loss per Generation')
+plt.xlabel('Generation')
+plt.ylabel('Cross Entropy Loss')
+plt.show()
+
+plt.plot(train_acc, 'k-', label= 'Train Set Accuracy')
+plt.plot(test_acc, 'r--', label='Test Set Accuracy')
+plt.title('Train and Test Accuracy')
+plt.xlabel('Generation')
+plt.ylabel('Accuracy')
+plt.legend(loc='lower right')
+plt.show()
