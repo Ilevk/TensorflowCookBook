@@ -38,7 +38,7 @@ if os.path.isfile(data_file):
 else:
     def progress(block_num, block_size, total_size):
         progress_info = [cifar10_url, float(block_num * block_size) / float(total_size) * 100.0]
-        print('\r Downloading {} - {:.2f}%'.format(*progress_info), end='')
+        print('\r Downloading {} - {:.2f}%'.format(*progress_info), end="")
     filepath, _ = urllib.request.urlretrieve(cifar10_url, data_file, progress)
     tarfile.open(filepath, 'r:gz').extractall(data_dir)
 
